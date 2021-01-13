@@ -6,9 +6,10 @@ public class SampleEnemy : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    public int health,
+    public int health = 100,
         movingRight = 1,
-        positionOfPatrol;
+        positionOfPatrol,
+        damage;
 
     public Transform
         player,
@@ -182,5 +183,21 @@ public class SampleEnemy : MonoBehaviour
     {
         transform.Rotate(0f, 180f, 0f);
         movingRight *= -1;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (health <= 0)
+            return;
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(this.gameObject);
     }
 }

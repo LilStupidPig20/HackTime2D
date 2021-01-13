@@ -74,6 +74,8 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask whatIsGround;
 
+    public int health = 100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -436,5 +438,19 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }

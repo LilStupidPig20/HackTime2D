@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\PlayerCombatController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\SampleEnemy.cs" />
+    <Compile Include="Assets\Scripts\SimpleEnemyScript.cs" />
     <Compile Include="Assets\Scripts\SnakeMovement.cs" />
     <Compile Include="Assets\Scripts\WeaponEnemy.cs" />
     <Reference Include="UnityEngine">
