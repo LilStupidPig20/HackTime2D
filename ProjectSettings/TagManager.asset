@@ -18,9 +18,9 @@ TagManager:
   - Damageable
   - Dead
   - Player
-  - 
-  - 
-  - 
+  - Enemy
+  - Barrier
+  - LowLet
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 756119877
+    locked: 0
+  - name: Bullets
+    uniqueID: 3308104061
     locked: 0
   - name: Foreground Decoration
     uniqueID: 1796422411

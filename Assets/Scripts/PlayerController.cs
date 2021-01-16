@@ -74,6 +74,8 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask whatIsGround;
 
+    public int health = 100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -409,6 +411,17 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
             }
         }
+
+        if (ColliderScript.Lose == 3)
+        {
+            LoadPlayer();
+            ColliderScript.Lose = 4;
+        }
+
+        if (ColliderScript.Lose == 0 && Input.GetKeyDown(KeyCode.M))
+        {
+            SavePlayer();
+        }
     }
 
     public void DisableFlip()
@@ -436,5 +449,35 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        transform.position = position;
     }
 }

@@ -73,8 +73,7 @@ public class PlayerCombatController : MonoBehaviour
 
         foreach (Collider2D collider in detectedObjects)
         {
-            collider.transform.parent.SendMessage("Damage", attack1Damage);
-            //Instantiate hit particle
+            Destroy(collider.gameObject);
         }
     }
 

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 87f083d1b8f36d04a89c380d1eb0bf03
+  - enabled: 1
+    path: Assets/Scenes/SnakeMiniGame.unity
+    guid: d207e107ecaf1eb4d85c49f8fe2e9d36
   m_configObjects: {}
